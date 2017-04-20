@@ -19,7 +19,7 @@ function shopping() {
         for (var i = 0; i < res.length; i++) {
             console.log("ID " + res[i].item_id + " || Product: " + res[i].product_name + " || department: " + res[i].department_name + " || Price: " + res[i].price + " || In Stock: " + res[i].stock_quantity);
         }
-    }); //end of select from products
+   
     inquirer.prompt([{
             name: "item_id",
             type: "input",
@@ -27,7 +27,7 @@ function shopping() {
         }, {
             name: "quantity",
             type: "input",
-            message: "How many would you liked?"
+            message: "How many would you like?"
         }]).then(function(answer) {
             
 
@@ -39,7 +39,7 @@ function shopping() {
                     var amount = parseInt(res[0].stock_quantity) - parseInt(answer.quantity);
                     // console.log(parseInt(amount));
 
-                    if (parseInt(amount) > 0) {
+                    if (parseInt(amount) >= 0) {
                         connection.query("UPDATE products SET stock_quantity = ? WHERE ?", [parseInt(amount), { item_id: answer.item_id }], function(err, res) {
                             console.log(amount + " left!");
                         })//end of changing stock quantities
@@ -50,7 +50,7 @@ function shopping() {
                 })//end of viewing stock quantities
             })//end of selecting id
         }) //end of then
-
+     }) //end of select from products
 }; //end of shopping
 
 shopping();
