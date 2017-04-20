@@ -1,0 +1,3 @@
+USE BAMAZON;
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Chocolate Cake", "food", 20, 20), ("Vanilla Ice Cream", "food", 13, 15), ("Strawberry Surprise", "food", 20, 30), ("Cookie", "food", 2, 20), ("Blueberry Muffin", "food", 4, 40), ("Green Tea Cake", "food", 6, 12), ("Pizza", "food", 23, 40), ("Scone", "food", 3, 40), ("Mocha Coffee", "food", 5, 13), ("Popcorn", "food", 1, 30);
